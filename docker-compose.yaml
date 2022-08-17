@@ -51,3 +51,22 @@ services:
         reservations:
           cpus: 0.50
           memory: 256M
+
+  restful-service:
+    build:
+      context: .
+      dockerfile: ./restful-service/RestfulService.Dockerfile
+    container_name: restful-service
+    ports:
+      - "8081:8080"
+    depends_on:
+      - mongodb
+      - seed-database
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 512M
+        reservations:
+          cpus: 0.50
+          memory: 256M
