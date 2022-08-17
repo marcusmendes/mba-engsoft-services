@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: soap-service
+  data:
+    mongodb:
+      uri: mongodb://mongodb/app
+      database: app
+      auto-index-creation: false
+
+logging:
+  level:
+    ROOT: INFO

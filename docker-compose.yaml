@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:5.0.10
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_DATABASE: app
+    ports:
+      - "27017:27017"
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 1024M
+        reservations:
+          cpus: 0.50
+          memory: 512M
+
+  seed-database:
+    build:
+      context: ./seeder
+      dockerfile: ./Seeder.Dockerfile
+    container_name: seeder
+    depends_on:
+      - mongodb
+    deploy:
+      resources:
+        limits:
+          cpus: 0.50
+          memory: 256M
+        reservations:
+          cpus: 0.25
+          memory: 128M
+
+  soap-service:
+    build:
+      context: .
+      dockerfile: ./soap-service/SoapService.Dockerfile
+    container_name: soap-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+      - seed-database
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 512M
+        reservations:
+          cpus: 0.50
+          memory: 256M
