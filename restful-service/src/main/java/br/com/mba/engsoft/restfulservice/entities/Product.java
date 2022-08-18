@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Document(collation = "products")
+@Document(collection = "products")
 public class Product {
 
     protected String id;
