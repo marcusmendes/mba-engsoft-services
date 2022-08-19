@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: graphql-service
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/app
+      database: app
+      auto-index-creation: false
+  graphql:
+    graphiql:
+      enabled: true
+      path: /graphiql
+
+logging:
+  level:
+    ROOT: INFO

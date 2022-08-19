@@ -49,6 +49,7 @@
 	<modules>
 		<module>soap-service</module>
         <module>restful-service</module>
+        <module>graphql-service</module>
     </modules>
 
 	<build>

@@ -1,0 +1,27 @@
+type Product {
+    id: String!,
+    name: String!,
+    slug: String!,
+    permalink: String,
+    dateCreated: String,
+    dateModified: String,
+    type: String!,
+    status: String!,
+    featured: String,
+    catalogVisibility: String,
+    description: String,
+    shortDescription: String,
+    sku: String,
+    price: Float,
+    regularPrice: Float,
+    salePrice: Float,
+    dateOnSaleFrom: String,
+    dateOnSaleTo: String,
+    image: String
+}
+
+input ProductInput {
+    id: String,
+    name: String,
+    slug: String
+}
