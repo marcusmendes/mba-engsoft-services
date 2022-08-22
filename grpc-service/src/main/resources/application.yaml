@@ -6,11 +6,8 @@ spring:
       uri: ${MONGODB_URI:mongodb://localhost:27017/app}
       database: app
       auto-index-creation: false
-  graphql:
-    graphiql:
-      enabled: true
-      path: /graphiql
 
 logging:
   level:
     ROOT: INFO
+

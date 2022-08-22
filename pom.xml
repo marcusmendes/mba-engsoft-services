@@ -50,6 +50,7 @@
 		<module>soap-service</module>
         <module>restful-service</module>
         <module>graphql-service</module>
+        <module>grpc-service</module>
     </modules>
 
 	<build>

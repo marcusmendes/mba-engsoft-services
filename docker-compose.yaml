@@ -38,6 +38,8 @@ services:
       context: .
       dockerfile: ./soap-service/SoapService.Dockerfile
     container_name: soap-service
+    environment:
+      MONGODB_URI: mongodb://mongodb/app
     ports:
       - "8080:8080"
     depends_on:
@@ -57,8 +59,52 @@ services:
       context: .
       dockerfile: ./restful-service/RestfulService.Dockerfile
     container_name: restful-service
+    environment:
+      MONGODB_URI: mongodb://mongodb/app
     ports:
       - "8081:8080"
+    depends_on:
+      - mongodb
+      - seed-database
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 512M
+        reservations:
+          cpus: 0.50
+          memory: 256M
+
+  graphql-service:
+    build:
+      context: .
+      dockerfile: ./graphql-service/GraphQLService.Dockerfile
+    container_name: graphql-service
+    environment:
+      MONGODB_URI: mongodb://mongodb/app
+    ports:
+      - "8082:8080"
+    depends_on:
+      - mongodb
+      - seed-database
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 512M
+        reservations:
+          cpus: 0.50
+          memory: 256M
+
+  grpc-service:
+    build:
+      context: .
+      dockerfile: ./grpc-service/gRPC.Dockerfile
+    container_name: grpc-service
+    environment:
+      MONGODB_URI: mongodb://mongodb/app
+    ports:
+      - "9090:9090"
     depends_on:
       - mongodb
       - seed-database
