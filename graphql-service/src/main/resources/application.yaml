@@ -13,4 +13,4 @@ spring:
 
 logging:
   level:
-    ROOT: INFO
+    ROOT: ${LOG:INFO}
