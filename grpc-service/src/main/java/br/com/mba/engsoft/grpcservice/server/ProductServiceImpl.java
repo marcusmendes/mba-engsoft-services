@@ -9,11 +9,10 @@ import br.com.mba.engsoft.grpcservice.services.ProductService;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 
-import static org.springframework.util.ObjectUtils.*;
+import static org.springframework.util.ObjectUtils.isEmpty;
 import static org.springframework.util.StringUtils.hasText;
 
 @GrpcService

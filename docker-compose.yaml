@@ -3,7 +3,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:5.0.10
-    container_name: mongodb
+    container_name: mongodb-mba
     environment:
       MONGO_INITDB_DATABASE: app
     ports:
@@ -44,7 +44,7 @@ services:
       resources:
         limits:
           cpus: 1
-          memory: 512M
+          memory: 1024M
 
   restful-service:
     build:
@@ -63,7 +63,7 @@ services:
       resources:
         limits:
           cpus: 1
-          memory: 512M
+          memory: 1024M
 
   graphql-service:
     build:
@@ -82,7 +82,7 @@ services:
       resources:
         limits:
           cpus: 1
-          memory: 512M
+          memory: 1024M
 
   grpc-service:
     build:
@@ -101,4 +101,4 @@ services:
       resources:
         limits:
           cpus: 1
-          memory: 512M
+          memory: 1024M
